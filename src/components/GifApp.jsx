@@ -1,18 +1,16 @@
 import { useGif } from '../hooks/useGif.jsx'
+import { BuscarGif } from './BuscarGif.jsx'
+import { ContenedorGifs } from './ContenedorGifs.jsx'
  
 //functional component
 export const GifApp = () => {
  
-    const {handleGetGif, gif} = useGif()
+    const {handleGetGif, gifs} = useGif()
     return (
         //fragment
         <>
-            <div className="d-flex flex-row justify-content-center alig-items-center mt-3">
-                <button onClick={handleGetGif} className="btn btn-outline-success">Generar Gif</button>
-            </div>
-            <div className="d-flex flex-row justify-content-center alig-items-center mt-3">
-                <img className="w-50 m-5" src={gif} alt="image" />
-            </div>
+           <BuscarGif handleGetGif={handleGetGif}/>
+           <ContenedorGifs gifs={gifs}/>
  
         </>
     )
